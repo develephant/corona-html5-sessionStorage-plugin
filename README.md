@@ -70,6 +70,8 @@ __Notes__
 
 Lua _Table_ types are converted to JSON strings before being stored.
 
+---
+
 ### getItem
 
 Get saved data from sessionStorage.
@@ -136,6 +138,8 @@ _Table_
 local config_tbl = sessionStorage.getItem('config', 'table')
 ```
 
+---
+
 ### removeItem
 
 Remove saved data from sessionStorage.
@@ -167,6 +171,8 @@ else
 end
 ```
 
+---
+
 ### exists
 
 Check if key is present in sessionStorage.
@@ -194,6 +200,8 @@ else
   print('username does not exist')
 end
 ```
+
+---
 
 ### clear
 
