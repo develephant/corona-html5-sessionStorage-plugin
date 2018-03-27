@@ -123,7 +123,7 @@ else
 end
 ```
 
-__See also [exists](#exists).__
+Note: You can also verify a key is present using [exists](#exists).
 
 _Number_
 
@@ -216,7 +216,7 @@ end
 
 ### clear
 
-Remove all saved data from sessionStorage.
+Remove _all_ saved data from sessionStorage.
 
 ```lua
 sessionStorage.clear()
