@@ -26,6 +26,8 @@ In [Corona](https://coronalabs.com) HTML5 apps you can use [system.setPreference
 
 This plugin utilizes the browsers "sessionStorage" which only lasts as long at the user session is active. When the browser window is closed, all session data is removed. This can be useful in certain use cases.
 
+Data stored in "sessionStorage" is always of the _String_ type. This plugin helps with the conversion of Lua types when storing and retrieving "sessionStorage" data.
+
 ### Cookies VS Sessions
 
 A browser page session lasts for as long as the browser is open and survives over page reloads and restores. Opening a page in a new tab or window will cause a new session to be initiated, which differs from how session cookies work.
@@ -64,6 +66,10 @@ else
 end
 ```
 
+__Notes__
+
+Lua _Table_ types are converted to JSON strings before being stored.
+
 ### getItem
 
 Get saved data from sessionStorage.
@@ -90,10 +96,44 @@ Valid `valTypes` are:
   - 'boolean'
   - 'table'
 
-__Example__
+__Examples__
+
+_String_
 
 ```lua
---code
+local username = sessionStorage.getItem('username')
+print(username) --> Donna
+
+--Or to verify
+local username = sessionStorage.getItem('username')
+if not username then
+  print('no username')
+else
+  print(username) --> Donna
+end
+```
+
+__See also [exists](#exists).__
+
+_Number_
+
+```lua
+--values are returned as strings unless a valType is specified.
+local score = sessionStorage.getItem('score', 'number')
+```
+
+_Boolean_
+
+```lua
+--values are returned as strings unless a valType is specified.
+local isWinner = sessionStorage.getItem('winner', 'boolean')
+```
+
+_Table_
+
+```lua
+--values are returned as strings unless a valType is specified.
+local config_tbl = sessionStorage.getItem('config', 'table')
 ```
 
 ### removeItem
@@ -117,7 +157,14 @@ On success the _Boolean_ `true`, or `nil` otherwise.
 __Example__
 
 ```lua
---code
+sessionStorage.removeItem('username')
+
+--Or to verify
+if (sessionStorage.removeItem('username')) then
+  print('deleted')
+else
+  print('failed')
+end
 ```
 
 ### exists
@@ -141,7 +188,11 @@ If the key exists returns the _Boolean_ `true`, or `false` otherwise.
 __Example__
 
 ```lua
---code
+if (sessionStorage.exists('username')) then
+  print('username exists')
+else
+  print('username does not exist')
+end
 ```
 
 ### clear
@@ -163,7 +214,14 @@ On success the _Boolean_ `true`, or `nil` otherwise.
 __Example__
 
 ```lua
---code
+sessionStorage.clear()
+
+--Or to verify
+if (sessionStorage.clear()) then
+  print('cleared')
+else
+  print('failed')
+end
 ```
 
 ## Demo
