@@ -123,7 +123,7 @@ else
 end
 ```
 
-Note: You can also verify a key is present using [exists](#exists).
+__Note__: You can also verify a key is present using the [exists](#exists) method.
 
 _Number_
 
