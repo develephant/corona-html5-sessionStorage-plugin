@@ -76,7 +76,7 @@ sessionStorage('config', {username="Donna", score=100})
 
 __Notes__
 
-Lua _Table_ types are converted to JSON strings before being stored.
+Lua _Table_ types are converted to JSON strings before being stored. You must use the 'table' `valType` to retrieve them (see [getItem](#getitem) below).
 
 ---
 
