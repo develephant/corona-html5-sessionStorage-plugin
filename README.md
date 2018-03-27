@@ -6,7 +6,7 @@ __Store and retrieve data using the browsers Session Storage API in Corona HTML5
 
 |![chrome](icons/chrome.png)|![ie](icons/ie.png)|![firefox](icons/firefox.png)|![safari](icons/safari.png)|![opera](icons/opera.png)|
 |---------------------------|-------------------|-----------------------------|---------------------------|-------------------------|
-|![pass](icons/pass.png)|![untested](icons/untested.png)|![pass](icons/pass.png)|![pass](icons/pass.png)|![untested](icons/pass.png)|
+|![pass](icons/pass.png)|![untested](icons/pass.png)|![pass](icons/pass.png)|![pass](icons/pass.png)|![untested](icons/pass.png)|
 
 ## Installation
 
