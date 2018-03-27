@@ -130,6 +130,7 @@ _Number_
 ```lua
 --values are returned as strings unless a valType is specified.
 local score = sessionStorage.getItem('score', 'number')
+print(score) --> 100
 ```
 
 _Boolean_
@@ -137,6 +138,7 @@ _Boolean_
 ```lua
 --values are returned as strings unless a valType is specified.
 local isWinner = sessionStorage.getItem('winner', 'boolean')
+print(isWinner) --> true
 ```
 
 _Table_
@@ -144,6 +146,7 @@ _Table_
 ```lua
 --values are returned as strings unless a valType is specified.
 local config_tbl = sessionStorage.getItem('config', 'table')
+print(config_tbl.username) --> Donna
 ```
 
 ---
