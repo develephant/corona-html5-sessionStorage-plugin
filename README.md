@@ -20,9 +20,21 @@ __Desc__
 local sessionStorage = require("sessionStorage")
 ```
 
+## Overview
+
+In [Corona](https://coronalabs.com) HTML5 apps you can use [system.setPreferences]() and [system.getPreferences]() to store user data. This data is stored using the browsers "localStorage" which is stored indefinitely until manaully removed.
+
+This plugin utilizes the browsers "sessionStorage" which only lasts as long at the user session is active. When the browser window is closed, all session data is removed. This can be useful in certain use cases.
+
+### Cookies VS Sessions
+
+A browser page session lasts for as long as the browser is open and survives over page reloads and restores. Opening a page in a new tab or window will cause a new session to be initiated, which differs from how session cookies work.
+
 ## API
 
 ### setItem
+
+Save data to sessionStorage. Data can be _String_, _Number_, _Boolean_, or _Table_.
 
 ```lua
 sessionStorage.setItem(key, data)
@@ -32,20 +44,29 @@ __Arguments__
 
 |Name|Description|Type|Required|
 |----|-----------|----|--------|
-|key|desc|_String_|__Y__|
-|data|desc|_String_|__Y__|
+|key|The key name to store the data with.|_String_|__Y__|
+|data|The data to store. Data type can be _String_, _Number_, _Boolean_, or _Table_.|_Variable_|__Y__|
 
 __Returns__
 
-The _String_ 'deleted' on success.
+On success the _Boolean_ `true`, or `nil` otherwise.
 
 __Example__
 
 ```lua
---code
+sessionStorage.setItem('username', 'Donna')
+
+--Or to verify
+if (sessionStorage.setItem('username', 'Donna')) then
+  print('stored')
+else
+  print('failed')
+end
 ```
 
 ### getItem
+
+Get saved data from sessionStorage.
 
 ```lua
 sessionStorage.getItem(key[, valType])
@@ -55,12 +76,19 @@ __Arguments__
 
 |Name|Description|Type|Required|
 |----|-----------|----|--------|
-|key|desc|_String_|__Y__|
-|valType|desc|_String_|__N__|
+|key|The key name to retrieve the data from.|_String_|__Y__|
+|valType|The preferred returned data type. (see below).|_String_|__N__|
 
 __Returns__
 
-The _String_ 'deleted' on success.
+The data stored at `key`. By default this will be a _String_ data type. Pass a `valType` to convert the data.
+
+Valid `valTypes` are:
+
+  - 'string' (default)
+  - 'number'
+  - 'boolean'
+  - 'table'
 
 __Example__
 
@@ -70,6 +98,8 @@ __Example__
 
 ### removeItem
 
+Remove saved data from sessionStorage.
+
 ```lua
 sessionStorage.removeItem(key)
 ```
@@ -78,11 +108,11 @@ __Arguments__
 
 |Name|Description|Type|Required|
 |----|-----------|----|--------|
-|key|desc|_String_|__Y__|
+|key|The key name to delete the data from.|_String_|__Y__|
 
 __Returns__
 
-The _String_ 'deleted' on success.
+On success the _Boolean_ `true`, or `nil` otherwise.
 
 __Example__
 
@@ -92,6 +122,8 @@ __Example__
 
 ### exists
 
+Check if key is present in sessionStorage.
+
 ```lua
 sessionStorage.exists(key)
 ```
@@ -100,11 +132,11 @@ __Arguments__
 
 |Name|Description|Type|Required|
 |----|-----------|----|--------|
-|key|desc|_String_|__Y__|
+|key|The key name to check for existence.|_String_|__Y__|
 
 __Returns__
 
-The _String_ 'deleted' on success.
+If the key exists returns the _Boolean_ `true`, or `false` otherwise.
 
 __Example__
 
@@ -113,6 +145,8 @@ __Example__
 ```
 
 ### clear
+
+Remove all saved data from sessionStorage.
 
 ```lua
 sessionStorage.clear()
@@ -124,7 +158,7 @@ _This method takes no arguments_
 
 __Returns__
 
-The _String_ 'deleted' on success.
+On success the _Boolean_ `true`, or `nil` otherwise.
 
 __Example__
 
