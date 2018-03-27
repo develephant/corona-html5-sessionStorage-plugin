@@ -1,6 +1,6 @@
 # ![logo](icons/logo.png) Corona HTML5 Session Storage Plugin
 
-__Desc__
+__Store and retrieve data using the browsers session storage API in Corona HTML5 apps.__
 
 ## Browser Tests
 

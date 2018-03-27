@@ -11,6 +11,10 @@ window.sessionStorage_js =
 
     var val = window.sessionStorage.getItem(key);
 
+    if (val == null) {
+      return null;
+    }
+
     if (valType == null) {
       return val.toString();
     }
@@ -18,13 +22,15 @@ window.sessionStorage_js =
     if (valType == 'table') {
       return JSON.parse(val)
     } else if (valType == 'number') {
-      return parseInt(val);
+      return parseFloat(val);
     } else if (valType == 'boolean') {
       val = val.toLowerCase();
       return val == 'true'
     } else {
       return val.toString()
     }
+
+    return null;
   },
   setItem: function(key, data) {
     if (typeof(window.sessionStorage) == "undefined") {
