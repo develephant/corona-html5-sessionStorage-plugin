@@ -53,7 +53,9 @@ __Returns__
 
 On success the _Boolean_ `true`, or `nil` otherwise.
 
-__Example__
+__Examples__
+
+_String_
 
 ```lua
 sessionStorage.setItem('username', 'Donna')
@@ -64,6 +66,12 @@ if (sessionStorage.setItem('username', 'Donna')) then
 else
   print('failed')
 end
+```
+
+_Table_
+
+```lua
+sessionStorage('config', {username="Donna", score=100})
 ```
 
 __Notes__
