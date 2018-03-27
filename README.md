@@ -249,7 +249,7 @@ In the __demo__ directory is a Corona project that you can build for HTML5 testi
 
 ## Notes
 
- - You can view the "sessionStorage" data using the Google Chrome _Developer Tools_ window (or similar on other browsers). Click the _Application_ tab, and then _Session Storage_ (on the left side menu).
+You can view the "sessionStorage" data using the Google Chrome _Developer Tools_ window (or similar on other browsers). Click the _Application_ tab, and then _Session Storage_ (on the left side menu).
 
 ---
 
