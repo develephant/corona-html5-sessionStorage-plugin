@@ -22,7 +22,7 @@ local sessionStorage = require("sessionStorage")
 
 ## Overview
 
-In [Corona](https://coronalabs.com) HTML5 apps you can use [system.setPreferences]() and [system.getPreferences]() to store user data. This data is stored using the browsers "localStorage" which is stored indefinitely until manaully removed.
+In [Corona](https://coronalabs.com) HTML5 apps you can use [system.setPreferences](https://docs.coronalabs.com/api/library/system/setPreferences.html) and [system.getPreference](https://docs.coronalabs.com/api/library/system/getPreference.html) to store user data. This data is stored using the browsers "localStorage" which is stored indefinitely until manaully removed.
 
 This plugin utilizes the browsers "sessionStorage" which only lasts as long at the user session is active. When the browser window is closed, all session data is removed. This can be useful in certain use cases.
 
